@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shafaq-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shafaq
+  template:
+    metadata:
+      labels:
+        app: shafaq
+    spec:
+      containers:
+      - name: shafaq
+        image: shafaqimage:latest
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 5000
